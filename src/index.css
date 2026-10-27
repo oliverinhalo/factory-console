@@ -1,0 +1,83 @@
+@import './styles/tokens.css';
+@import 'tailwindcss';
+
+/* Expose the tokens to Tailwind utilities so `bg-surface`, `text-muted` etc. work
+ * and components never need a raw colour. */
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-border-subtle: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ink: var(--text);
+  --color-muted: var(--text-muted);
+  --color-faint: var(--text-faint);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-text);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --radius-token: var(--radius);
+}
+
+html {
+  color-scheme: light dark;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--t-base);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Numbers that align, everywhere numbers appear in a column. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Focus is always visible and always on-brand. Never remove it. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+/* Skip link: visible only when focused, which is when it matters. */
+.skip-link {
+  position: absolute;
+  left: var(--s-4);
+  top: var(--s-4);
+  z-index: 50;
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--accent-text);
+  transform: translateY(-200%);
+  transition: transform var(--dur-state) var(--ease-enter);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

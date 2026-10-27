@@ -1,0 +1,17 @@
+{
+  "name": "Factory Console",
+  "short_name": "Factory Console",
+  "description": "Monitor, control and feed the weekly app factory from one page.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbfbfa",
+  "theme_color": "#0b0d10",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
